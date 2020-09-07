@@ -51,5 +51,4 @@ class TestMain(unittest.TestCase):
   
 
             
-    # 以此类推，可以将所有的测试用例一一转化为上述的test方法
-        
+# 以此类推，可以将所有的测试用例一一转化为上述的test方法
