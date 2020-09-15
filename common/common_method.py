@@ -11,7 +11,7 @@ from common.base_info import HEADERS
 from time import sleep
 
 def get_headers_after_login():
-    payload = '{"account":"188","password":"123456","isLoading":false,"errorInfo":{"type":"","message":""},"isRememberPWD":true}'
+    payload = '{"account":"188","password":"123456"}'
     headers = HEADERS.copy()
     response = requests.request("POST", LOGIN_INTERFACE_URL, data=payload, headers=headers)
     if  response.status_code in (502,500,401):
@@ -25,7 +25,7 @@ def get_headers_after_login():
         headers["Authorization"] = token
         # print(headers)
         return headers
-
+    
 def TestResult(response):
     
         print(f"响应对象的类型为：{type(response)}") 
