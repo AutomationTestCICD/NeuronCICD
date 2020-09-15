@@ -11,7 +11,7 @@ from common.base_info import HEADERS
 from time import sleep
 
 def get_headers_after_login():
-    payload = '{"account":"188","password":"123456","isLoading":false,"errorInfo":{"type":"","message":""},"isRememberPWD":true}'
+    payload = '{"account":"188","password":"123456"}'
     headers = HEADERS.copy()
     response = requests.request("POST", LOGIN_INTERFACE_URL, data=payload, headers=headers)
     if  response.status_code in (502,500,401):
@@ -20,12 +20,12 @@ def get_headers_after_login():
         sleep(times) 
 
     else:
-#        print("\n登陆成功")
+        # print("\n登陆成功")
         token = response.json()["data"]["user"]["token"]
         headers["Authorization"] = token
-#     print(headers)
+        # print(headers)
         return headers
-
+    
 def TestResult(response):
     
         print(f"响应对象的类型为：{type(response)}") 
@@ -48,8 +48,6 @@ def TestResult(response):
 #     last_notice_id = response.json()[0]["noticeid"]
 # #     print(last_notice_id)
 #     return int(last_notice_id), headers
-#     
+#
 # if __name__ == "__main__":
 #     get_last_notice_id()
-#     
-#     

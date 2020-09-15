@@ -4,11 +4,9 @@ Created on 2020年8月11日
 @author: Administrator
 '''
 import unittest, requests
-from common.base_info import today_start, today_end, Now_time,\
-    Now_NextHours
+from common.base_info import today_start, today_end, Now_time, Now_NextHours
 from common.common_method import get_headers_after_login, TestResult
-from common.interface_url import bespeakList_INTERFACE_URL,\
-    bespeak_ADD_INTERFACE_URL
+from common.interface_url import bespeakList_INTERFACE_URL, bespeak_ADD_INTERFACE_URL
  
 
 login_headers = get_headers_after_login()
@@ -23,7 +21,8 @@ class TestBespeak(unittest.TestCase):
 
     def tearDown(self):
         pass
-    
+
+    @unittest.skip("我想跳过新增预约")
     def test_bespeak01(self):
         '''测试新增预约''' 
         
@@ -35,7 +34,7 @@ class TestBespeak(unittest.TestCase):
         print("新建预约成功\n")
     
     def test_bespeak02(self):
-        '''测试预约列表''' 
+        '''测试预约列表'''
         
         data = '{"index":1,"size":15,"startTime":"%s","endTime":"%s","getTotalFlag":true}'  %(today_start,today_end)
         response = requests.request("POST", self.url02, data=data, headers=login_headers)  
@@ -51,7 +50,7 @@ class TestBespeak(unittest.TestCase):
         self.assertIn("成功获取数据，数据非空", response.json()["msg"],"未获取到数据")
         
     def test_bespeak03(self):
-        '''测试预约编辑''' 
+        '''测试预约编辑'''
         pass
     
     def test_bespeak04(self):
@@ -60,9 +59,5 @@ class TestBespeak(unittest.TestCase):
 
 
 if __name__ == "__main__":
-    #import sys;sys.argv = ['', 'Test.testName']
+# import sys;sys.argv = ['', 'Test.testName']
     unittest.main()
-    
-    
-
-        

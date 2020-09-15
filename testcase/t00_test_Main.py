@@ -48,8 +48,5 @@ class TestMain(unittest.TestCase):
         print(f'\n************今日目前总计{response.json()["data"]["total"]}条接待数据************')
         self.assertIn("成功获取数据，数据非空", response.json()["msg"],"未获取到数据")
 
-  
-
             
-    # 以此类推，可以将所有的测试用例一一转化为上述的test方法
-        
+# 以此类推，可以将所有的测试用例一一转化为上述的test方法

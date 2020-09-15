@@ -189,9 +189,9 @@ function showOutput(id, name) {
 
 <div class='heading'>
 <h1>自动化接口测试</h1>
-<p class='attribute'><strong>测试开始时间:</strong> 2020-08-21 16:09:49</p>
-<p class='attribute'><strong>测试耗时时长:</strong> 0:00:01.948000</p>
-<p class='attribute'><strong>测试状态结果:</strong> 通过 10</p>
+<p class='attribute'><strong>测试开始时间:</strong> 2020-09-05 01:05:58</p>
+<p class='attribute'><strong>测试耗时时长:</strong> 0:00:00.901476</p>
+<p class='attribute'><strong>测试状态结果:</strong> 通过 7 未通过 2</p>
 
 <p class='description'> 此次测试包含了主流程，以及各模块的增删改查</p>
 </div>
@@ -221,11 +221,11 @@ function showOutput(id, name) {
     <td>查看</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>testcase.t00_test_Main.TestMain: 测试主流程</td>
     <td>2</td>
-    <td>2</td>
-    <td>0</td>
+    <td>1</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c1',2)">详情</a></td>
 </tr>
@@ -254,22 +254,30 @@ pt1.1:
     </td>
 </tr>
 
-<tr id='pt1.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_reception01: 测试接待列表</div></td>
+<tr id='ft1.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_reception01: 测试接待列表</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt1.2')" >
-        通过</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft1.2')" >
+        未通过</a>
 
-    <div id='div_pt1.2' class="popup_window">
+    <div id='div_ft1.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt1.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft1.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt1.2: 
+ft1.2: Traceback (most recent call last):
+  File "D:\PyCharm\WorkSpace\NeuronCICD\testcase\t00_test_Main.py", line 49, in test_reception01
+    self.assertIn("成功获取数据，数据非空", response.json()["msg"],"未获取到数据")
+AssertionError: '成功获取数据，数据非空' not found in '操作成功,数据为空' : 未获取到数据
+Traceback (most recent call last):
+  File "D:\PyCharm\WorkSpace\NeuronCICD\testcase\t00_test_Main.py", line 49, in test_reception01
+    self.assertIn("成功获取数据，数据非空", response.json()["msg"],"未获取到数据")
+AssertionError: '成功获取数据，数据非空' not found in '操作成功,数据为空' : 未获取到数据
+
 
         </pre>
     </div>
@@ -280,15 +288,15 @@ pt1.2:
 
 <tr class='passClass'>
     <td>testcase.t01_test_BespeakRelation.TestBespeak: 测试【预约】类</td>
-    <td>4</td>
-    <td>4</td>
+    <td>3</td>
+    <td>3</td>
     <td>0</td>
     <td>0</td>
-    <td><a href="javascript:showClassDetail('c2',4)">详情</a></td>
+    <td><a href="javascript:showClassDetail('c2',3)">详情</a></td>
 </tr>
 
 <tr id='pt2.1' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_bespeak01: 测试新增预约</div></td>
+    <td class='none'><div class='testcase'>test_bespeak02: 测试预约列表</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
@@ -312,44 +320,20 @@ pt2.1:
 </tr>
 
 <tr id='pt2.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_bespeak02: 测试预约列表</div></td>
-    <td colspan='5' align='center'>
-
-    <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt2.2')" >
-        通过</a>
-
-    <div id='div_pt2.2' class="popup_window">
-        <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt2.2').style.display = 'none' " >
-           [x]</a>
-        </div>
-        <pre>
-        
-pt2.2: 
-
-        </pre>
-    </div>
-    <!--css div popup end-->
-
-    </td>
-</tr>
-
-<tr id='pt2.3' class='hiddenRow'>
     <td class='none'><div class='testcase'>test_bespeak03: 测试预约编辑</div></td>
     <td colspan='5' align='center'>通过</td>
 </tr>
 
-<tr id='pt2.4' class='hiddenRow'>
+<tr id='pt2.3' class='hiddenRow'>
     <td class='none'><div class='testcase'>test_bespeak04: 测试预约删除</div></td>
     <td colspan='5' align='center'>通过</td>
 </tr>
 
-<tr class='passClass'>
+<tr class='failClass'>
     <td>testcase.t02_test_ReceptionRelation.TestReception: 测试【接待】类</td>
     <td>4</td>
-    <td>4</td>
-    <td>0</td>
+    <td>3</td>
+    <td>1</td>
     <td>0</td>
     <td><a href="javascript:showClassDetail('c3',4)">详情</a></td>
 </tr>
@@ -359,22 +343,30 @@ pt2.2:
     <td colspan='5' align='center'>通过</td>
 </tr>
 
-<tr id='pt3.2' class='hiddenRow'>
-    <td class='none'><div class='testcase'>test_reception02: 测试接待列表</div></td>
+<tr id='ft3.2' class='none'>
+    <td class='failCase'><div class='testcase'>test_reception02: 测试接待列表</div></td>
     <td colspan='5' align='center'>
 
     <!--css div popup start-->
-    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt3.2')" >
-        通过</a>
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.2')" >
+        未通过</a>
 
-    <div id='div_pt3.2' class="popup_window">
+    <div id='div_ft3.2' class="popup_window">
         <div style='text-align: right; color:red;cursor:pointer'>
-        <a onfocus='this.blur();' onclick="document.getElementById('div_pt3.2').style.display = 'none' " >
+        <a onfocus='this.blur();' onclick="document.getElementById('div_ft3.2').style.display = 'none' " >
            [x]</a>
         </div>
         <pre>
         
-pt3.2: 
+ft3.2: Traceback (most recent call last):
+  File "D:\PyCharm\WorkSpace\NeuronCICD\testcase\t02_test_ReceptionRelation.py", line 36, in test_reception02
+    self.assertIn("成功获取数据，数据非空", response.json()["msg"],"未获取到数据")
+AssertionError: '成功获取数据，数据非空' not found in '操作成功,数据为空' : 未获取到数据
+Traceback (most recent call last):
+  File "D:\PyCharm\WorkSpace\NeuronCICD\testcase\t02_test_ReceptionRelation.py", line 36, in test_reception02
+    self.assertIn("成功获取数据，数据非空", response.json()["msg"],"未获取到数据")
+AssertionError: '成功获取数据，数据非空' not found in '操作成功,数据为空' : 未获取到数据
+
 
         </pre>
     </div>
@@ -395,9 +387,9 @@ pt3.2:
 
 <tr id='total_row'>
     <td>总计</td>
-    <td>10</td>
-    <td>10</td>
-    <td>0</td>
+    <td>9</td>
+    <td>7</td>
+    <td>2</td>
     <td>0</td>
     <td>&nbsp;</td>
 </tr>
